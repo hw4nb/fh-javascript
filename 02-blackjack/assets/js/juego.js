@@ -1,4 +1,4 @@
-/* 
+/*
   2C = Two of Clubs
   2D = Two of Diamonds
   2H = Two of Hearts
@@ -8,6 +8,13 @@
 let deck         = [];
 const tipos      = ['C', 'D', 'H', 'S'];
 const especiales = ['A', 'J', 'Q', 'K'];
+
+let puntosJugador = 0,
+    puntosComputadora = 0;
+
+// Referencias del HTML
+const btnPedir = document.querySelector('#btnPedir');
+const puntosHtml = document.querySelectorAll('small');
 
 // Esta funcion crea una nueva baraja
 const crearDeck = () => {
@@ -41,10 +48,6 @@ const pedirCarta = () => {
   }
 
   const carta = deck.pop();
-  
-  console.log(deck);
-  console.log(carta); // la carta debe de ser de la baraja
-
   return carta;
 }
 
@@ -53,10 +56,21 @@ const valorCarta = (carta) => {
 
   const valor = carta.substring(0, carta.length - 1);
 
-  return (isNaN(valor)) ? 
+  return (isNaN(valor)) ?
          (valor === 'A') ? 11 : 10
          : valor * 1;
 }
 
-const valor = valorCarta(pedirCarta());
-console.log({valor});
+
+
+// Eventos
+btnPedir.addEventListener('click', () => {
+
+  const carta = pedirCarta();
+
+  puntosJugador = puntosJugador + valorCarta(carta);
+  puntosHtml[0].innerText = puntosJugador;
+
+
+
+});
