@@ -3,7 +3,7 @@ import '../css/componentes.css';
 
 
 
-export const saludar = (nombre) => {
+export const saludar = (nombre = 'sin nombre') => {
   console.log('Creando etiqueta h1');
 
   const h1 = document.createElement('h1');
@@ -11,7 +11,7 @@ export const saludar = (nombre) => {
 
   document.body.append(h1);
 
- // Img
+//  Img
 //  const img = document.createElement('img');
 //  img.src = webpacklogo;
 //  document.body.append(img);
