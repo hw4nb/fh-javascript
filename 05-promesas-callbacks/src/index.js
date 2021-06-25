@@ -1,38 +1,22 @@
-import { buscarHeroe as buscarHeroeCallback } from './js/callbacks';
-import { buscarHeroe } from './js/promesas';
+// import { promesaLenta, promesaMedia, promesaRapida } from './js/promesas'
+import { buscarHeroe, buscarHeroeAsync } from './js/promesas'
 
-import './styles.css';
 
-const heroeId1 = 'capi';
-const heroeId2 = 'spider';
+// promesaLenta.then(console.log);
+// promesaMedia.then(console.log);
+// promesaRapida.then(console.log);
 
-// buscarHeroe(heroeId1, (err, heroe1) => {
 
-//   if(err) { return console.error(err); }
+// Promise.race([promesaLenta, promesaMedia, promesaRapida])
+//   .then(console.log)
+//   .catch(console.warn)
 
-//   buscarHeroe(heroeId2, (err, heroe2) => {
 
-//     if(err) { return console.error(err); }
+buscarHeroe('capi2')
+  .then(heroe => console.log(heroe))
+  .catch(console.warn);
 
-//     console.log(`Enviando a ${heroe1.nombre} y ${heroe2.nombre} a la mision`);
 
-//   })
-
-// });
-
-// buscarHeroe(heroeId1).then(heroe1 => {
-//   // console.log(`Enviando a ${heroe.nombre} a la mision`);
-//   buscarHeroe(heroeId2).then(heroe2 => {
-//     console.log(`Enviando a ${heroe1.nombre} y ${heroe2.nombre} a la mision`);
-//   })
-// });
-
-Promise.all([buscarHeroe(heroeId1), buscarHeroe(heroeId2)])
-  .then(([heroe1, heroe2]) => {
-
-  console.log(`Enviando a ${heroe1.nombre} y ${heroe2.nombre} a la mision`);
-
-});
-
-console.log('Fin de programa');
-
+buscarHeroeAsync('iron2')
+  .then(heroe => console.log(heroe))
+  .catch(console.warn)
