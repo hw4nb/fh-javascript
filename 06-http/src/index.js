@@ -10,7 +10,9 @@ import * as CRUD from './js/crud-provider';
 //   job: 'Dancer'
 // }).then(console.log);
 
-CRUD.actualizarUsuario(1, {
-  name: 'Rocio',
-  job: 'Singer'
-}).then(console.log);
+// CRUD.actualizarUsuario(1, {
+//   name: 'Rocio',
+//   job: 'Singer'
+// }).then(console.log);
+
+CRUD.borrarUsuario(1).then(console.log);
